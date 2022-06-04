@@ -14,9 +14,56 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
         rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
         crossorigin="anonymous">
+        <style>
+            .chat-row {
+                margin: 50px;
+            }
+
+            .chat-contant ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            .chat-contant {
+                padding: 8px;
+                background: #928787;
+                margin-bottom: 20px;
+            }
+
+            .chat-contant li:nth-child(2n-2) {
+                background: #c3c5c5;
+            }
+
+            .chat-input {
+                border: 1px solid lightgray;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                padding: 10px 10px;
+                background: rgb(20, 67, 219);
+                color: white;
+            }
+        </style>
     </head>
    <body>
 
+        <div class="container">
+            <div class="row chat-row">
+                <div class="chat-contant">
+                    <ul>
+                        <li>text</li>
+                    </ul>
+                </div>
+
+                <div class="chat-section">
+                    <div class="chat-box">
+                        <div class="chat-input" id="chatInput" contenteditable="">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="https://code.jquery.com/jquery-3.6.0.js" 
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" 
         crossorigin="anonymous"></script>
@@ -31,7 +78,7 @@
                 let socket_port = '3000';
                 let socket = io(ip_address + ':' + socket_port); 
 
-                socket.on('connection');
+               
             })
         </script>
    </body>
