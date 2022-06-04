@@ -51,7 +51,7 @@
             <div class="row chat-row">
                 <div class="chat-contant">
                     <ul>
-                        <li>text</li>
+                        
                     </ul>
                 </div>
 
@@ -78,7 +78,20 @@
                 let socket_port = '3000';
                 let socket = io(ip_address + ':' + socket_port); 
 
+                let chatInput = $('#chatInput');
+                chatInput.keypress(function(e){
+                    let message = $(this).html();
+                    console.log(message);
+                    if(e.which === 13 && !e.shiftKey){
+                        socket.emit('sendChatToServer', message);
+                        chatInput.html('');
+                        return false;
+                    }
+                })
                
+                socket.on('sendChatToClient', (message) => {
+                    $('.chat-contant ul').append(`<li>${message}</li>`);
+                })
             })
         </script>
    </body>
